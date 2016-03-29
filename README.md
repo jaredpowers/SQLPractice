@@ -35,8 +35,9 @@ SELECT sum(price) FROM items WHERE category = "Tools";
 SELECT sum(quantity) FROM orders;
 
 8. How much was spent on books?
-22702
-SELECT sum(price) FROM items WHERE category = "Books";
+1081352
+SELECT SUM(quantity * items.price) FROM orders JOIN items
+...> ON orders.item_id = items.id WHERE category LIKE "%book%";;
 
 9. Simulate buying an item by inserting a User for yourself and an Order for that User.
 INSERT INTO users VALUES (51, "Jared", "Powers", "jarpow44@gmail.com");
